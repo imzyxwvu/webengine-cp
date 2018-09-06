@@ -1,0 +1,57 @@
+body {
+	margin: 50px 0 0 200px;
+}
+
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	z-index: 1000;
+	box-sizing: border-box;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 30px;
+}
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 200px;
+	background-color: #89A;
+	box-sizing: border-box;
+	padding: 50px 0 0 0;
+	color: white;
+}
+
+.sidebar .copyright {
+	color: #ABC;
+	text-align: center;
+}
+
+.sidebar-nav-item {
+	display: block;
+	padding: 10px;
+	margin: 0;
+	cursor: pointer;
+	text-align: center;
+	color: white;
+}
+
+.sidebar-nav-item:hover {
+	background-color: #678;
+	color: white;
+	text-decoration: none;
+}
+
+.main {
+	padding: 10px 30px;
+}
+
+.main h1 {
+	margin: 10px 0;
+}

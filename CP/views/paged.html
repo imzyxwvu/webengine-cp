@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<title><@ pageTitle @> - 日志查看器</title>
+	<link rel="stylesheet" href="/s/logviewer.css">
+</head>
+<body>
+    <h1><@ pageTitle @>  第 <@ pageNo @> 页</h1>
+    <p><a href="/logs">&lt; 返回</a> | <@ Navigate @></p>
+    <table class="logs">
+    <thead><td style="min-width: 150px;">日期 & 时间 & Host</td><td>访问者IP</td><td>请求详情</td></thead><@!each request%Requests@>
+    <tr><td><@request.date@> <a href="/logs?host=<@request.host@>"><@request.host@></a></td>
+    <td class="center"><a href="/logs?ip=<@request.ip@>"><@request.ip@></a></td>
+    <td class="break-all"><a href="/logs/<@request.id@>" target="_blank"><@request.verb@> <@request.res@></a></td></tr><@end@>
+    </table>
+</body>
+</html>

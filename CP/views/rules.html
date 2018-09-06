@@ -1,0 +1,58 @@
+<h1>规则管理</h1>
+<p>可在本页定义安全规则，对于不满足任何安全规则的请求，默认允许通过。</p>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>域名</th>
+        <th>规则</th>
+        <th>IP地址</th>
+        <th>动作</th>
+        <th>编辑</th>
+      </tr>
+    </thead>
+    <tbody>
+    <@!each rule%Rules@>
+        <tr>
+            <td><@rule.hostname@></td>
+            <td><@rule.rule@></td>
+            <td><@rule.ip@></td>
+            <td>拒绝通过</td>
+            <td>
+                <a href="/rules/<@rule.id@>/delete">删除</a>
+            </td>
+        </tr>
+    <@end@>
+    </tbody>
+</table>
+<hr>
+<form class="form-horizontal" action="/op/saveRule" method="POST">
+  <div class="form-group">
+    <label for="addSiteDomain" class="col-sm-2 control-label">域名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" data-name="siteDomain" placeholder="example.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addSiteHosts" class="col-sm-2 control-label">规则</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" data-name="rule" id="addSiteHosts" placeholder="^/admin/.+">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addRuleIP" class="col-sm-2 control-label">IP地址</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" data-name="forIP" placeholder="127%..+" value=".+">
+    </div>
+    <label for="addRuleAction" class="col-sm-2 control-label">动作</label>
+    <div class="col-sm-4">
+      <select class="form-control" data-name="operation">
+        <option>拒绝通过</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">添加</button>
+    </div>
+  </div>
+</form>

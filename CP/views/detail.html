@@ -1,0 +1,10 @@
+<h1>日志 #<@ logId @> 详情</h1>
+<table class="table">
+<tr><td class="meta-title">元信息</td><td><@ logMeta @></td></tr>
+<tr><td class="meta-title">IP 信息</td><td><a class="ipaddr" href="/logs?ip=<@ peerName @>"><@ peerName @></a></td></tr>
+<tr><td class="meta-title">请求资源</td><td class="break-all"><@ reqRes @></td></tr>
+<@!if reqRef@><tr><td class="meta-title">引用源</td><td class="break-all"><@ reqRef @></td></tr><@end@>
+<@!if reqUA@><tr><td class="meta-title">用户代理</td><td class="break-all"><@ reqUA @></td></tr><@end@>
+<@!if forFor@><tr><td class="meta-title">转发源</td><td><a class="ipaddr" href="/logs?xff=<@forFor@>"><@ forFor @></a></td></tr><@end@>
+</table>
+<p><a class="btn btn-default" href="/logs">返回</a></p>

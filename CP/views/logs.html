@@ -1,0 +1,6 @@
+<h1><@ pageTitle @></h1>
+<table class="table table-hover">
+<thead><th>日期 &amp; 时间 &amp; Host</th><th style="min-width: 150px;">访问者IP</th><th>请求详情</th></thead><@!each request%Requests@>
+<tr><td><@request.date@> <a href="/logs?host=<@request.host@>"><@request.host@></a></td>
+<td class="center"><a href="/logs?ip=<@request.ip@>"><@request.ip@></a></td><td class="break-all"><a href="/logs/<@request.id@>" target="_blank"><@request.verb@> <@request.res@></a></td></tr><@end@>
+</table>
